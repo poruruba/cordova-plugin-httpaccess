@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="cordova-plugin-httpaccess" version="0.0.1">
+    <name>HttpAccess</name>
+    <js-module src="www/plugin_httpaccess.js" name="httpaccess">
+        <clobbers target="httpaccess" />
+    </js-module>
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="HttpAccessPlugin" >
+                <param name="android-package" value="jp.or.sample.plugin.HttpAccess.Main"/>
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.INTERNET" />
+        </config-file>
+        <source-file src="src/android/jp/or/sample/plugin/HttpAccess/Main.java" target-dir="src/jp/or/sample/plugin/HttpAccess" />
+        <source-file src="src/android/jp/or/sample/plugin/HttpAccess/HttpAccess.java" target-dir="src/jp/or/sample/plugin/HttpAccess" />
+    </platform>
+    <platform name="ios">
+        <dependency id="cordova-plugin-add-swift-support" version="2.0.2"/>
+        <config-file target="config.xml" parent="/*">
+            <feature name="HttpAccessPlugin" >
+                <param name="ios-package" value="HttpAccessPlugin"/>
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        <source-file src="src/ios/HttpAccessPlugin.swift" target-dir="src/ios" />    
+        <source-file src="src/ios/HttpAccess.swift" target-dir="src/ios" />
+    </platform>
+</plugin>

@@ -1,0 +1,11 @@
+{
+  "name": "cordova-plugin-httpaccess",
+  "version": "0.0.1",
+  "cordova": {
+    "id": "cordova-plugin-httpaccess",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  }
+}
